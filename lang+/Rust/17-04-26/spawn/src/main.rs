@@ -1,3 +1,12 @@
+use std::thread;
+
 fn main() {
-    println!("Hello, world!");
+
+    let x = 10;
+
+    let handle = thread::spawn(move || {
+        println!("Hello World, I am {}", x);
+    });
+
+    handle.join().unwrap();
 }
