@@ -1,6 +1,7 @@
 use std::sync::{Arc, Mutex};
 use std::thread;
 use std::sync::mpsc;
+use std::time::Duration;
 
 // 10个线程做0 + ... + 9
 
@@ -20,6 +21,11 @@ fn main() {
         thread::spawn(move || {
 
             let mut data = data.lock().unwrap();
+
+            thread::sleep(Duration::from_secs(1));
+
+            println!("{}", *data);
+
             *data += i;
 
             tx.send(|i|{
