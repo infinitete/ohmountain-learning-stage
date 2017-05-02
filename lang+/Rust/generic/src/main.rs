@@ -9,7 +9,7 @@ fn main() {
 
     let mut name2 = Name {
         first_name: None,
-        last_name: "田".to_string()
+        last_name: "田".to_string(),
     };
 
     println!("{}", name1);
@@ -47,7 +47,7 @@ impl Display for Name<String> {
 }
 
 trait SetName {
-    fn set_first_name(&mut self,  first_name: String) -> &mut Name<String>;
+    fn set_first_name(&mut self, first_name: String) -> &mut Name<String>;
     fn set_last_name(&mut self, last_name: String) -> &mut Name<String>;
 }
 
