@@ -1,0 +1,33 @@
+use std::fmt::{Display, Formatter};
+use std::fmt::Result as FmtResult;
+
+fn main() {
+    let name1 = Name{
+        first_name: Some("仁山".to_string()),
+        last_name: "田".to_string()
+    };
+
+    let name2 = Name {};
+
+    println!("{}", name1);
+}
+
+
+struct Name<T> {
+    first_name: Option<T>,
+    last_name: T
+}
+
+impl Display for Name<String> {
+    fn fmt(&self, f: &mut Formatter) -> FmtResult {
+
+        match self.first_name.as_ref() {
+            Some(data) => {
+                return write!(f, "Name {{first_name: {}, last_name: {} }}", data.clone(), self.last_name);
+            },
+            None => {
+                return write!(f, "Name {{first_name: None, last_name: {} }}", self.last_name);
+            }
+        }
+    }
+}
