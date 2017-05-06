@@ -1,0 +1,11 @@
+[package]
+name = "micro_token"
+version = "0.1.0"
+authors = ["renshan <1005110700@qq.com>"]
+
+[dependencies]
+iron = "0.5.1"
+router = "0.5.1"
+redis = "0.8.0"
+hyper = "0.10.9"
+uuid = { version = "0.5", features = ["serde", "v4"] }
