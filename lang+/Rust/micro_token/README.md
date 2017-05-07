@@ -103,3 +103,8 @@ Percentage of the requests served within a certain time (ms)
   99%     12
  100%     19 (longest request)
  ```
+ 
+## 后记 ##
+[Iron](https://github.com/iron/iron)是一个基于[Hyper](https://github.com/hyperium/hyper)的很优秀的Rust Web框架，性能卓越，Iron和很多现代Web框一样是一个组件化的框架。周末花了一天一夜使用Iron做了这个小小的程序；在写这个程序之前对Iron了解不多，最多就是Hello World的水平；通过一天一夜的奋战，终于可以开发出一个简单的Web程序，这过程中，学习了很多Iron和Hyper相关的知识，如Request、Response、Headers、Body等。  
+较大的一坑是由于没有详细看Iron的另外一个库[iron/params](https://github/iron/params)，导致写validate API的时候通过读取Request Body，然后使用正则匹配的方式获取请求参数，导致性能下降90%(哎哟我去，一度怀疑是不是使用太多String Clone造成的，后来确认是正则库[regex](https://github.com/rust-lang/regex)的性能实在是太差，不过也可能是读取Request Body的锅)，使用iron/params后，性能马上恢复正常。  
+与PHP版本相比([另一个PHP版本的的实现](https://github.com/ohmountain/ohmountain-learning-stage/tree/master/lang%2B/PHP/micro_token))，PHP版本的性能是Rust版本性能的20%以下，Rust版的响应时间都是十多毫秒，而PHP版本则达1秒左右。相较开发难度而言，Rust无疑是没有任何优势的，我可以在半小时内完成PHP版本，但完成Rust版本却需要一天一夜。
