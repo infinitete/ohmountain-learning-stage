@@ -19,5 +19,7 @@ fn main() {
         return Ok(response);
     }, "generate");
 
+    println!("Server runing: 0.0.0.0:3000");
+
     Iron::new(router).http("0.0.0.0:3000").unwrap();
 }

@@ -1,0 +1,20 @@
+{
+    "name": "renshan/r",
+    "type": "framework",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "renshan",
+            "email": "1005110700@qq.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Nineteen\\Redis\\": "src/"
+        }
+    },
+    "minimum-stability": "dev",
+    "require": {
+        "ramsey/uuid": "^3.6"
+    }
+}
