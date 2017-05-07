@@ -1,7 +1,9 @@
 # micro_token Rust版 性能 #
 
+### generate API  ###
+
 ```shell
-his is ApacheBench, Version 2.3 <$Revision: 1706008 $>  
+This is ApacheBench, Version 2.3 <$Revision: 1706008 $>  
 Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/  
 Licensed to The Apache Software Foundation, http://www.apache.org/  
   
@@ -45,7 +47,51 @@ Percentage of the requests served within a certain time (ms)
  100%    199 (longest request)  
 ```
 
-## 检验API性能问题 ##
-1. 已经确定性能问题不是操作Redis造成的，而是因为使用正则库匹配请求参数造成的
-2. 性能下降严重，不使用正则可处理每秒3w7请求左右，使用正则以后每秒只能处理5k请求
-3. 难道这就是hyper或者iron没有提供任何获取请求参数的原因？
+### validate API ###
+```shell
+This is ApacheBench, Version 2.3 <$Revision: 1706008 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking localhost (be patient)
+
+
+Server Software:        mkd
+Server Hostname:        localhost
+Server Port:            3000
+
+Document Path:          /validate
+Document Length:        19 bytes
+
+Concurrency Level:      1000
+Time taken for tests:   0.313 seconds
+Complete requests:      10000
+Failed requests:        0
+Total transferred:      1600000 bytes
+Total body sent:        1780000
+HTML transferred:       190000 bytes
+Requests per second:    31931.84 [#/sec] (mean)
+Time per request:       31.317 [ms] (mean)
+Time per request:       0.031 [ms] (mean, across all concurrent requests)
+Transfer rate:          4989.35 [Kbytes/sec] received
+                        5550.65 kb/s sent
+                        10540.00 kb/s total
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        1    2   1.0      2       9
+Processing:     1    4   1.1      3      17
+Waiting:        1    3   1.0      3      16
+Total:          3    6   1.6      6      19
+
+Percentage of the requests served within a certain time (ms)
+  50%      6
+  66%      6
+  75%      7
+  80%      7
+  90%      8
+  95%      9
+  98%     12
+  99%     12
+ 100%     19 (longest request)
+ ```

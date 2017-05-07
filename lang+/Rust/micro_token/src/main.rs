@@ -1,12 +1,12 @@
 extern crate iron;
 extern crate router;
 extern crate micro_token;
+extern crate params;
 
-use micro_token::{Controller, ParameterBuilder, ParameterHandler};
+use micro_token::{Controller };
 use iron::prelude::*;
 use router::Router;
-use std::io::Read;
-use iron::status;
+use params::{Params, Value};
 
 fn main() {
     let mut router = Router::new();
@@ -20,19 +20,37 @@ fn main() {
     router.post("/validate", |request: &mut Request| {
 
         let controller = Controller {ttl: 60};
-        let mut body: String = String::new();
 
-        request.body.read_to_string(&mut body);
+        let map = request.get_ref::<Params>().unwrap();
 
-        let mut parameter_handler: ParameterHandler = ParameterBuilder::new(body);
+        let key = map.find(&[&"key"]);
+        let val = map.find(&[&"val"]);
 
-        let key_name = "key".to_string();
-        let val_name = "val".to_string();
+        let mut _key = Some(String::new());
+        let mut _val = Some(String::new());
+        let mut response: Response = Response::new();
 
-        let key = parameter_handler.get(key_name);
-        let val = parameter_handler.get(val_name);
+        if key.is_none() || val.is_none() {
+            response = controller.validate(None, None);
+        } else {
+            match key {
+                Some(&Value::String(ref k)) => {
+                    _key = Some(k.clone());
+                },
 
-        let response = controller.validate(key, val);
+                _ => { _key = None  }
+            };
+
+            match val {
+                Some(&Value::String(ref v)) => {
+                    _val = Some(v.clone());
+                },
+
+                _ => { _val = None  }
+            };
+
+            response = controller.validate(_key, _val);
+        }
 
         Ok(response)
 

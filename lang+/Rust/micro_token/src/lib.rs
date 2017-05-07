@@ -3,7 +3,6 @@ extern crate redis;
 extern crate iron;
 extern crate router;
 extern crate hyper;
-extern crate regex;
 
 use uuid::Uuid;
 use redis::Commands;
@@ -12,10 +11,6 @@ use iron::prelude::*;
 use iron::status;
 use iron::typemap::TypeMap;
 use hyper::header::{Headers, Server, ContentLength};
-use regex::Regex;
-use std::f64;
-use std::str::FromStr;
-
 
 pub struct Validator<'a> {
     pub con: Option<&'a redis::Connection>
@@ -135,91 +130,5 @@ impl Controller {
         };
 
         response
-    }
-}
-pub struct ParameterBuilder {
-}
-
-impl ParameterBuilder {
-    pub fn new(body: String) -> ParameterHandler {
-        ParameterHandler {
-            body: body.clone(),
-            parameters: None
-        }
-    }
-}
-
-pub struct ParameterHandler {
-    pub body: String,
-    parameters: Option<Vec<Parameter>>,
-}
-
-impl ParameterHandler {
-
-    pub fn get_paramaters(&mut self) -> Vec<Parameter> {
-
-        if self.parameters.is_some() {
-            return self.parameters.clone().unwrap();
-        }
-
-        let reg = Regex::new("(?P<key>^[a-zA-Z]\\w+)=(?P<val>.+)").unwrap();
-
-        let pairs: Vec<&str> = self.body.split('&').collect();
-
-        let mut ret:Vec<Parameter> = Vec::new();
-
-        for kv in pairs {
-            for cp in reg.captures_iter(kv) {
-                ret.push(Parameter{
-                    key: cp[1].trim().to_string().clone(),
-                    val: cp[2].trim().to_string().clone()
-                });
-            }
-        }
-
-        self.parameters = Some(ret.clone());
-
-        ret
-    }
-
-    pub fn get(&mut self, key: String) -> Option<String> {
-
-        if self.parameters.is_none() {
-            self.get_paramaters();
-        }
-
-        let parameters_vec = self.parameters.clone();
-
-        if parameters_vec.is_none() {
-            return None
-        }
-
-        for kv in parameters_vec.unwrap() {
-            if kv.key.eq(&key) {
-                return Some(kv.val.clone());
-            }
-        }
-
-        None
-    }
-}
-
-
-#[derive(Debug)]
-#[derive(Clone)]
-pub struct Parameter {
-    pub key: String,
-    pub val: String
-}
-
-impl Parameter {
-    pub fn get_numeric(&self) -> Option<f64> {
-
-        let f64_val = f64::from_str(self.val.clone().as_str());
-
-        match f64_val {
-            Ok(data) => Some(data),
-            Err(_) => None
-        }
     }
 }
