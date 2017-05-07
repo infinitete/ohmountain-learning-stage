@@ -44,3 +44,8 @@ Percentage of the requests served within a certain time (ms)
   99%     15  
  100%    199 (longest request)  
 ```
+
+## 检验API性能问题 ##
+1. 已经确定性能问题不是操作Redis造成的，而是因为使用正则库匹配请求参数造成的
+2. 性能下降严重，不使用正则可处理每秒3w7请求左右，使用正则以后每秒只能处理5k请求
+3. 难道这就是hyper或者iron没有提供任何获取请求参数的原因？
