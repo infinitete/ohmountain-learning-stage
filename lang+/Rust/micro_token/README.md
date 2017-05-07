@@ -1,6 +1,14 @@
 # micro_token Rust版 性能 #
 
-### generate API  ###
+## 功能描述和性能测试  ##
+
+### generate API 功能 ###
+通过GET的方式获取一个UUID键值对和它的TTL,返回格式是JSON，程序内部对Redis只有写入
+
+### validate API 功能 ###
+通过POST的方式验证一个UUID的键值对是否存在Redis里，返回格式是JSON，请求需要两个参数：key和val，分别是redis的键名和值，程序内部需要获取请求值，对Redis是只读
+
+### generate API 性能测试  ###
 
 ```shell
 This is ApacheBench, Version 2.3 <$Revision: 1706008 $>  
@@ -47,7 +55,7 @@ Percentage of the requests served within a certain time (ms)
  100%    199 (longest request)  
 ```
 
-### validate API ###
+### validate API 性能测试 ###
 ```shell
 This is ApacheBench, Version 2.3 <$Revision: 1706008 $>
 Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
