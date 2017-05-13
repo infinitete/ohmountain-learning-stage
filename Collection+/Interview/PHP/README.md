@@ -2,3 +2,5 @@
 
 ## 目录  ##
 1. [检测一个变量是否设置的函数是什么?](src/isset.md)
+2. [检测一个变量是否为空的函数是什么?](src/empty.md)
+3. [echo(),print(),print_r()的区别是什么?](src/echo_print_print_r.md)
