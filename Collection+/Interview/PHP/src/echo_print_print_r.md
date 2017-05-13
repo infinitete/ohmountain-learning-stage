@@ -2,7 +2,7 @@
 
 ## 答案 ##
 
-### echo ###
+### [echo](http://php.net/manual/zh/function.echo.php) ###
 `echo` 输出一个或多个字符串  
 
 #### 格式 ####
@@ -14,7 +14,7 @@ echo 不是一个函数（它是一个语言结构）， 因此你不一定要�
 
 ------
 
-### print ###
+### [print](http://php.net/manual/zh/function.print.php) ###
 `print` 输出字符串
 
 #### 格式 ####
@@ -27,7 +27,7 @@ int print ( string $arg )
 
 ------
 
-### print_r ###
+### [print_r](http://php.net/manual/zh/function.print-r.php) ###
 `print_r` 打印关于变量的易于理解的信息
 
 #### 格式 ####
