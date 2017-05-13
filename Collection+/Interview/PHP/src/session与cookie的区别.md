@@ -19,11 +19,11 @@ Cookie 必须在 HTML 文件的内容输出之前设置；不同的浏览器 (Ne
 #### session 是什么 ####
 :在计算机中，尤其是在网络应用中，称为“会话控制”。Session 对象存储特定用户会话所需的属性及配置信息。这样，当用户在应用程序的 Web 页之间跳转时，存储在 Session 对象中的变量将不会丢失，而是在整个用户会话中一直存在下去。当用户请求来自应用程序的 Web 页时，如果该用户还没有会话，则 Web 服务器将自动创建一个 Session 对象。当会话过期或被放弃后，服务器将终止该会话。Session 对象最常见的一个用法就是存储用户的首选项。
 
-session的工作原理
-（1）当一个session第一次被启用时，一个唯一的标识被存储于本地的cookie中。
-（2）首先使用session_start()函数，PHP从session仓库中加载已经存储的session变量。
-（3）当执行PHP脚本时，通过使用session_register()函数注册session变量。
-（4）当PHP脚本执行结束时，未被销毁的session变量会被自动保存在本地一定路径下的session库中，这个路径可以通过php.ini文件中的session.save_path指定，下次浏览网页时可以加载使用。
+session的工作原理  
+1. 当一个session第一次被启用时，一个唯一的标识被存储于本地的cookie中。
+2. 首先使用session_start()函数，PHP从session仓库中加载已经存储的session变量。
+3. 当执行PHP脚本时，通过使用session_register()函数注册session变量。
+4. 当PHP脚本执行结束时，未被销毁的session变量会被自动保存在本地一定路径下的session库中，这个路径可以通过php.ini文件中的session.save_path指定，下次浏览网页时可以加载使用。
 
 ### 区别 ###
 1. 存放位置不同，cookie存放在客户端(浏览器),而session存储在服务端。
