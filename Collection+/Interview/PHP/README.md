@@ -5,3 +5,4 @@
 2. [检测一个变量是否为空的函数是什么?](src/empty.md)
 3. [echo(),print(),print_r()的区别是什么?](src/echo_print_print_r.md)
 4. [表单中GET和POST的区别](src/form_get_post.md)
+5. [session与cookie的区别](src/session与cookie的区别.md)
