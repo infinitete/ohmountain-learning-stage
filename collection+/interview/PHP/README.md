@@ -13,3 +13,6 @@
 10. [写一个遍历目录下所有文件和文件夹的函数](src/traversal_directory.md)
 11. [MySQL存储引擎](src/mysql_engine.md)
 12. [MySQL中int和bigint的区别](src/mysql_int_bigint.md)
+13. [MySQL中char和varchar的区别](src/mysql_char_varchar.md)
+14. [简述用户表和登录表分表的好处](src/mysql_user_login.md)
+15. [打印上一月最后一天的当前时间](src/last_month_now_time.md)
