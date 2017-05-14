@@ -8,8 +8,7 @@
 ``` php
 
 // 握槽，真这么简单？直接就减一个月？
-echo date('Y-m-t', strtotime('-1 month')); 
+echo date('Y-m-t H:i:s', strtotime('-1 month')); 
 
 // date 格式中的 t 表示上个月有多少天，即上个月的最后一天
 ```
-
