@@ -3,11 +3,16 @@
 ## 答案 ##
 
 ```php
-function traversalDirectory($path) {
+ /**
+ * 遍历目录
+ *
+ * @param string $path
+ */
+function traversalDirectory(string $path) {
 
     $path = realpath($path);
 
-    if (is_file($path)) {
+    if ($path !== false && is_file($path)) {
         echo $path . "\n";
         return;
     }
@@ -22,13 +27,6 @@ function traversalDirectory($path) {
     }
 
     $handle = $dir->handle;
-
-    /**
-     * 防止打开文件目录失败
-     */
-    if ($handle == null) {
-        return;
-    }
 
     while (($_path = readdir($handle)) !== false) {
 
@@ -46,6 +44,9 @@ function traversalDirectory($path) {
         traversalDirectory($_path);
     }
 
+    /**
+     * 关闭文件句柄
+     */
     $dir->close();
 }
 
