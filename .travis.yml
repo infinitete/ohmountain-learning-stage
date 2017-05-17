@@ -1,0 +1,11 @@
+script:
+  cd ./lang+/PHP/DesignPattern
+
+language:
+  php
+
+install:
+  composer install
+
+script:
+  ./vendor/bin/phpunit
