@@ -14,8 +14,8 @@ class SingletonTest extends \PHPUnit\Framework\TestCase
         $s2 = Singleton::getInstance();
         $s3 = Singleton::getInstance();
 
-        $this->assertEquals($s1, $s2);
-        $this->assertEquals($s1, $s3);
-        $this->assertEquals($s2, $s3);
+        $this->assertSame($s1, $s2);
+        $this->assertSame($s1, $s3);
+        $this->assertSame($s2, $s3);
     }
 }
