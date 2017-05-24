@@ -9,5 +9,5 @@
 
 2. [语言学习](lang+)
     1. [PHP](lang+/PHP)
-        1. [PHP设计模式](lang+/PHP/DesignPattern)
+        1. [PHP设计模式](lang+/PHP/design_pattern)
     2. [Rust](lang+/Rust)
