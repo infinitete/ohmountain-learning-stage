@@ -8,6 +8,9 @@ namespace Nineteen\Design\Pattern\Strategy;
 
 class FemaleAd extends Ad
 {
+    /**
+     * @return string
+     */
     public function show(): string
     {
         $word = parent::show();

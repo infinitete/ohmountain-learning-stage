@@ -11,6 +11,9 @@ namespace Nineteen\Design\Pattern\Strategy;
 
 class MaleAd extends Ad
 {
+    /**
+     * @return string
+     */
     public function show(): string
     {
         $word = parent::show();
