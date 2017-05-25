@@ -11,7 +11,7 @@ class SortingAlgoritnm {
             throw new Exception("Paramater arr must be an array that contains some value");
         }
 
-        for (var i = 0; i < len; i++) {
+        for (var i = 0; i < len - 1; i++) {
             for (var j = i+1; j < len; j++) {
                 if (arr[i] > arr[j]) {
                     var tmp = arr[i];
