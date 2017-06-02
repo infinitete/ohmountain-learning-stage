@@ -6,11 +6,7 @@ const algorithm = new Algorithm();
 describe('JavaScript 十大排序算法', function() {
 
     describe('#冒泡排序', function() {
-        var arr = [];
-
-        for (var i=0; i<14; i++) {
-            arr.push(Math.random() * 1000);
-        }
+        var arr = [-1, 99, 33, 2, -1];
 
         var res = algorithm.bubble(arr);
 
@@ -24,11 +20,7 @@ describe('JavaScript 十大排序算法', function() {
     });
 
     describe('#选择排序', function() {
-        var arr = [];
-
-        for (var i=0; i<14; i++) {
-            arr.push(Math.random() * 1000);
-        }
+        var arr = [-1, 99, 33, 2, -1];
 
         var res = algorithm.selection(arr);
 
@@ -42,11 +34,7 @@ describe('JavaScript 十大排序算法', function() {
     });
 
     describe('#插入排序', function() {
-        var arr = [];
-
-        for (var i=0; i<14; i++) {
-            arr.push(Math.random() * 1000);
-        }
+        var arr = [-1, 99, 33, 2, -1];
 
         var res = algorithm.insertion(arr);
 

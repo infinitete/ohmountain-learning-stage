@@ -61,7 +61,7 @@ class SortingAlgorithm {
                 j--;
             }
 
-            arr[j] = key;
+            arr[j+1] = key;
         }
 
         return arr;
