@@ -1,6 +1,6 @@
 // JS十大排序算法
 
-class SortingAlgoritnm {
+class SortingAlgorithm {
 
     // 冒泡排序
     // @param array arr
@@ -69,4 +69,4 @@ class SortingAlgoritnm {
 }
 
 
-module.exports = SortingAlgoritnm;
+module.exports = SortingAlgorithm;

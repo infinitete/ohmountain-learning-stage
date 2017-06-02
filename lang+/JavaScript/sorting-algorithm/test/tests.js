@@ -1,7 +1,7 @@
 const assert = require('chai').assert;
-const Aligoritnm = require('./../sorting-algoritnm.js');
+const Algorithm = require('./../sorting-algorithm.js');
 
-const aligoritnm = new Aligoritnm();
+const algorithm = new Algorithm();
 
 describe('JavaScript 十大排序算法', function() {
 
@@ -12,7 +12,7 @@ describe('JavaScript 十大排序算法', function() {
             arr.push(Math.random() * 1000);
         }
 
-        var res = aligoritnm.bubble(arr);
+        var res = algorithm.bubble(arr);
 
         for (var i = 0; i < res.length - 1; i++) {
             it(`${res[i]} <= ${res[i+1]}`, function(j) {
@@ -30,7 +30,7 @@ describe('JavaScript 十大排序算法', function() {
             arr.push(Math.random() * 1000);
         }
 
-        var res = aligoritnm.selection(arr);
+        var res = algorithm.selection(arr);
 
         for (var i = 0; i < res.length - 1; i++) {
             it(`${res[i]} <= ${res[i+1]}`, function(j) {
@@ -48,7 +48,7 @@ describe('JavaScript 十大排序算法', function() {
             arr.push(Math.random() * 1000);
         }
 
-        var res = aligoritnm.insertion(arr);
+        var res = algorithm.insertion(arr);
 
         for (var i = 0; i < res.length - 1; i++) {
             it(`${res[i]} <= ${res[i+1]}`, function(j) {

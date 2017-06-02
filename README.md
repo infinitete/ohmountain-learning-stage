@@ -11,3 +11,5 @@
     1. [PHP](lang+/PHP)
         1. [PHP设计模式](lang+/PHP/design_pattern)
     2. [Rust](lang+/Rust)
+    3. [JavaScript](lang+/JavaScript)
+        1. [JavaScript十大排序算法](lang+/JavaScript/sorting-algorithm)
