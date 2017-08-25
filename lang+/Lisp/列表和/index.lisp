@@ -1,3 +1,6 @@
+;;;
+;;; 列表过滤空值后求和
+;;;
 (defun summit (list)
   (if (listp list)
       (let ((list (remove nil list)))
