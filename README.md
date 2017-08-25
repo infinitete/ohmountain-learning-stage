@@ -14,4 +14,6 @@
     3. [JavaScript](lang+/JavaScript)
         1. [JavaScript十大排序算法](lang+/JavaScript/sorting-algorithm)
     4. [Lisp](lang/Lisp)
-        1. [累加程序](lang+/Lisp/累加)
+        1. [累加](lang+/Lisp/累加)
+        2. [大小](lang+/Lisp/大小)
+        3. [列表和](lang+/Lisp/列表)
