@@ -1,4 +1,5 @@
 # LISP 学习笔记
+> 资料来自 [ANSI Common Lisp 中文版](http://acl.readthedocs.io/en/latest/zhCN/)
 
 ## Chapter 2 总结
 1. Lisp 是一种交互式语言。如果你在顶层输入一个表达式， Lisp 会显示它的值。
