@@ -13,3 +13,5 @@
     2. [Rust](lang+/Rust)
     3. [JavaScript](lang+/JavaScript)
         1. [JavaScript十大排序算法](lang+/JavaScript/sorting-algorithm)
+    4. [Lisp](lang/Lisp)
+        1. [累加程序](lang+/Lisp/累加)
