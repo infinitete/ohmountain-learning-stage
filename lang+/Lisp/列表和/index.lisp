@@ -10,3 +10,14 @@
   )
 
 (summit '(1 2 3 nil 10 100 nil))
+
+;;;
+;;; 版本2
+;;;
+(defun summit1 (list)
+  (if (listp list)
+      (apply #'+ (remove nil list))
+      0
+      ))
+
+(summit '(1 2 3 nil 101000 nil))
