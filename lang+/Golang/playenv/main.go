@@ -47,6 +47,7 @@ func printEnvs(args []string, envs []string) {
 		max_len = 4
 	)
 
+	// skip playenv
 	for i := 1; i < env_len; i++ {
 		if len(args[i]) > max_len {
 			max_len = len(args[i])
@@ -57,6 +58,7 @@ func printEnvs(args []string, envs []string) {
 
 	fmt.Println("[")
 
+	// skip playenv
 	for i := 1; i < env_len; i++ {
 		fmt.Printf(format, args[i], envs[i])
 	}
