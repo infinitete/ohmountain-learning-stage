@@ -19,3 +19,4 @@
         3. [列表和](lang+/Lisp/列表)
     5. [Golang](lang/Golang)
         1. [playenv](lang+/Golang/playenv)
+        2. [star](lang+/Golang/star)
