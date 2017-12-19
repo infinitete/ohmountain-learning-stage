@@ -1,0 +1,8 @@
+[package]
+name = "blockchain"
+version = "0.1.0"
+authors = ["renshan <1005110700@qq.com>"]
+
+[dependencies]
+time = "0.1.38"
+sha2 = "0.7.0"
