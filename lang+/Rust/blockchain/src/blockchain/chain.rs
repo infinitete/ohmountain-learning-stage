@@ -1,9 +1,10 @@
+use std::vec::Vec;
 use super::block::Block;
 use super::block::BlockBuilder;
 
 #[derive(Debug)]
 pub struct Chain {
-    blocks: Vec<Block>
+    pub blocks: Vec<Block>
 }
 
 impl Chain {
@@ -12,26 +13,38 @@ impl Chain {
         Chain { blocks: vec![] }
     }
 
-    pub fn TheCreation(&mut self, data: Vec<u8>) {
+    pub fn the_creation(&mut self, data: Vec<u8>) {
         if self.blocks.len() == 0 {
             let mut builder = BlockBuilder::new();
-            let block = builder.data(data).hash().finalize();
-            self.blocks.push(block);
+            let mut block = builder.data(data).finalize();
+            self.blocks.push(block.hashing().to_owned());
         }
     }
 
-    pub fn pushBlock(&mut self, block: Block) {
+    pub fn append_block(&mut self, block: &mut Block) {
 
         if self.blocks.len() == 0 {
-            self.TheCreation(String::from("The Creation").as_bytes().to_vec());
+            self.the_creation(String::from("The Creation").as_bytes().to_vec());
             return;
         }
 
-       let mut b = block.clone();
+        let last_index = self.blocks.len() - 1;
+        block.prev_block_hash = Vec::from(self.blocks[last_index].hash.as_slice());
 
-        let lastIndex = self.blocks.len() - 1;
-        b.prevBlockHash = self.blocks[lastIndex].hash.clone();
+        self.blocks.push(block.hashing().to_owned());
+    }
 
-        self.blocks.push(b);
+    pub fn the_creation_block(&self) -> Option<Block> {
+        match self.blocks.len() {
+            0 => None,
+            _ => Some(self.blocks[0].to_owned())
+        }
+    }
+
+    pub fn last_block(&self) -> Option<Block> {
+        match self.blocks.len() {
+            0 => None,
+            n => Some(self.blocks[n - 1].to_owned())
+        }
     }
 }
