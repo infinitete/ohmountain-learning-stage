@@ -1,4 +1,5 @@
 extern crate blockchain;
+extern crate hex;
 
 use blockchain::blockchain::block;
 use blockchain::blockchain::chain;
@@ -15,4 +16,8 @@ fn main() {
 
     // 第三块
     chain.append_block(&mut block::BlockBuilder::new().data(String::from("你好世界").as_bytes().to_vec()).finalize());
+
+    for b in chain.blocks {
+        println!("{}, {:?}", b.get_hash_string(), b.hash);
+    }
 }

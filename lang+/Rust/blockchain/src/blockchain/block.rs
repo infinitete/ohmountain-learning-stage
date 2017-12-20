@@ -1,5 +1,6 @@
 extern crate time;
 extern crate sha2;
+extern crate hex;
 
 use std::vec::Vec;
 use self::sha2::Digest;
@@ -28,6 +29,10 @@ impl Block {
         self.hash = hasher.result().as_slice().to_vec();
 
         self
+    }
+
+    pub fn get_hash_string(&self) -> String {
+        hex::encode(&self.hash)
     }
 }
 
