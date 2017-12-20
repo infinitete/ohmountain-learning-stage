@@ -41,7 +41,6 @@ pub struct BlockBuilder {
     pub data: Vec<u8>,
     pub hash: Vec<u8>,
     pub prev_block_hash: Vec<u8>,
-    pub success: bool
 }
 
 impl BlockBuilder {
