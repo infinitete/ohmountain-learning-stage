@@ -1,34 +1,31 @@
-extern crate time;
-extern crate sha2;
 extern crate hex;
+extern crate sha2;
+extern crate time;
 
 use std::vec::Vec;
-use self::sha2::Digest;
+use super::pow::ProofOfWork;
 
-#[derive(Clone)]
-#[derive(Debug)]
+#[derive(Clone, Debug)]
 pub struct Block {
+    pub nonce: i64,
     pub timestamp: i64,
     pub data: Vec<u8>,
     pub hash: Vec<u8>,
-    pub prev_block_hash: Vec<u8>
+    pub prev_block_hash: Vec<u8>,
 }
 
 impl Block {
-
     pub fn hashing(&mut self) -> &mut Block {
+        let (nonce, hash): (i64, Vec<u8>) = ProofOfWork::new(&self).run();
 
-        let mut hasher = sha2::Sha256::default();
-        let mut data = Vec::from(self.data.as_slice());
-        let timestamp = self.timestamp.to_string().into_bytes();
-
-        data.extend_from_slice(&self.prev_block_hash.as_slice());
-        data.extend_from_slice(timestamp.as_slice());
-
-        hasher.input(&data);
-        self.hash = hasher.result().as_slice().to_vec();
+        self.hash = hash;
+        self.nonce = nonce;
 
         self
+    }
+
+    pub fn get_pow(&self) -> ProofOfWork {
+        ProofOfWork::new(&self)
     }
 
     pub fn get_hash_string(&self) -> String {
@@ -53,7 +50,6 @@ impl BlockBuilder {
             data: vec![],
             hash: vec![],
             prev_block_hash: vec![],
-            success: false
         }
     }
 
@@ -64,10 +60,11 @@ impl BlockBuilder {
 
     pub fn finalize(&mut self) -> Block {
         Block {
+            nonce: 0,
             timestamp: self.timestamp,
             data: Vec::from(self.data.as_slice()),
             hash: vec![],
-            prev_block_hash: vec![]
+            prev_block_hash: vec![],
         }
     }
 }

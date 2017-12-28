@@ -4,11 +4,10 @@ use super::block::BlockBuilder;
 
 #[derive(Debug)]
 pub struct Chain {
-    pub blocks: Vec<Block>
+    pub blocks: Vec<Block>,
 }
 
 impl Chain {
-
     pub fn new() -> Chain {
         Chain { blocks: vec![] }
     }
@@ -22,7 +21,6 @@ impl Chain {
     }
 
     pub fn append_block(&mut self, block: &mut Block) {
-
         if self.blocks.len() == 0 {
             self.the_creation(String::from("The Creation").as_bytes().to_vec());
             return;
@@ -37,14 +35,14 @@ impl Chain {
     pub fn the_creation_block(&self) -> Option<Block> {
         match self.blocks.len() {
             0 => None,
-            _ => Some(self.blocks[0].to_owned())
+            _ => Some(self.blocks[0].to_owned()),
         }
     }
 
     pub fn last_block(&self) -> Option<Block> {
         match self.blocks.len() {
             0 => None,
-            n => Some(self.blocks[n - 1].to_owned())
+            n => Some(self.blocks[n - 1].to_owned()),
         }
     }
 }
