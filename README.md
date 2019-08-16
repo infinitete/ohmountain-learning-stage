@@ -1,5 +1,5 @@
 # oh-mountain 学习记录 #
-> 这是一个繁杂的工程，目录结构Inspired By [spacemacs](https://github.com/syl20bnr/spacemacs)
+> 目录结构Inspired By [spacemacs](https://github.com/syl20bnr/spacemacs)
 
 目前有两个大类：
 
