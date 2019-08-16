@@ -20,5 +20,5 @@
     5. [Golang](lang/Golang)
         1. [playenv](lang+/Golang/playenv)
         2. [star](lang+/Golang/star)
-        3. [最长不重复字符串](lang+/Golang/unrepeated-string)
-        4. [star](lang+/Golang/merge-sort)
+        3. [最长不重复字符串](lang+/Golang/unrepeated-substring)
+        4. [并归排序](lang+/Golang/merge-sort)
